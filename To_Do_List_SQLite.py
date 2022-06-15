@@ -12,7 +12,12 @@ def create_table(connection):
 
 
 def show_tasks(connection):
-    pass
+    cur = connection.cursor()
+    cur.execute("""SELECT rowid, task FROM task""")
+    result = cur.fetchall()
+
+    for row in result:
+        print(str(row[0]) + " - " + row[1])
 
 
 def add_task(connection):
