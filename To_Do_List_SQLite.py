@@ -33,7 +33,16 @@ def add_task(connection):
 
 
 def delete_task(connection):
-    pass
+    task_index = int(input("Enter task id to delete: "))
+
+    cur = connection.cursor()
+    rows_deleted = cur.execute("""DELETE FROM task WHERE rowid=?""", (task_index,)).rowcount
+    connection.commit()
+
+    if rows_deleted == 0:
+        print("Error! This task does not exist!")
+    else:
+        print("Task delete!")
 
 
 create_table(connection)
