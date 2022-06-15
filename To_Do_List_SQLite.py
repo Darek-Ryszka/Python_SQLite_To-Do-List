@@ -16,7 +16,15 @@ def show_tasks(connection):
 
 
 def add_task(connection):
-    pass
+    print("We add a task")
+    task = input("The content of the task: ")
+    if task == "0":
+        print("Return to menu")
+    else:
+        cur = connection.cursor()
+        cur.execute("""INSERT INTO task(task) VALUES(?)""", (task,))
+        connection.commit()
+        print("Task added!")
 
 
 def delete_task(connection):
