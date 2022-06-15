@@ -68,3 +68,5 @@ while True:
 
     if user_choice == 4:
         break
+
+connection.close()
