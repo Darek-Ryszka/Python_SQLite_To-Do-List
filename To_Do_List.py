@@ -1,10 +1,13 @@
-user_choice = -1
+import sqlite3
 
-while user_choice != 5:
+connection = sqlite3.connect("todo.db")
+
+while True:
+    print()
     print("1. Show tasks")
     print("2. Add tasks")
     print("3. Delete tasks")
-    print("4. Save changes")
-    print("5. Exit")
+    print("4. Exit")
 
     user_choice = int(input("Choose a number: "))
+    print()
