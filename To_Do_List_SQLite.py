@@ -4,7 +4,11 @@ connection = sqlite3.connect("todo.db")
 
 
 def create_table(connection):
-    pass
+    try:
+        cur = connection.cursor()
+        cur.execute("""CREATE TABLE task(task text)""")
+    except:
+        pass
 
 
 def show_tasks(connection):
@@ -18,6 +22,8 @@ def add_task(connection):
 def delete_task(connection):
     pass
 
+
+create_table(connection)
 
 while True:
     print()
